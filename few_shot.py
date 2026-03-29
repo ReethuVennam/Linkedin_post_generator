@@ -1,21 +1,43 @@
 import pandas as pd
 import json
+from data_manager import DataManager
 
 
 class FewShotPosts:
-    def __init__(self, file_path="data/processed_posts.json"):
+    def __init__(self, file_path="data/processed_posts.json", custom_df=None):
         self.df = None
         self.unique_tags = None
-        self.load_posts(file_path)
+        self.load_posts(file_path, custom_df)
 
-    def load_posts(self, file_path):
-        with open(file_path, encoding="utf-8") as f:
-            posts = json.load(f)
-            self.df = pd.json_normalize(posts)
+    def load_posts(self, file_path, custom_df=None):
+        """Load posts from default file and/or custom dataframe."""
+        dfs_to_merge = []
+        
+        # Load default posts
+        default_df, _ = DataManager.load_default_data()
+        if default_df is not None:
+            dfs_to_merge.append(default_df)
+        
+        # Load custom manually added posts
+        custom_uploaded_df, _ = DataManager.load_custom_data()
+        if custom_uploaded_df is not None:
+            dfs_to_merge.append(custom_uploaded_df)
+        
+        # Load user-provided dataframe (from upload)
+        if custom_df is not None:
+            dfs_to_merge.append(custom_df)
+        
+        # Merge all dataframes
+        if dfs_to_merge:
+            self.df = DataManager.merge_dataframes(dfs_to_merge)
             self.df['length'] = self.df['line_count'].apply(self.categorize_length)
-            # collect unique tags
+            
+            # Collect unique tags
             all_tags = self.df['tags'].apply(lambda x: x).sum()
             self.unique_tags = list(set(all_tags))
+        else:
+            self.df = pd.DataFrame()
+            self.unique_tags = []
 
     def get_filtered_posts(self, length, language, tag):
         df_filtered = self.df[

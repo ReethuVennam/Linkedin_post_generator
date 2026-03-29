@@ -102,7 +102,4 @@ linkedin-post-generator/
 
 
 
-## Acknowledgments
 
-- Built with [Streamlit](https://streamlit.io/)
-- Powered by [LangChain](https://langchain.com/) and [Groq](https://groq.com/)

@@ -1,0 +1,38 @@
+[
+  {
+    "text": "Today I launched my first project! It's not perfect, but I'm proud of what I've built. The learning was incredible. 🎉",
+    "tags": ["Career", "Entrepreneurship", "Achievement"],
+    "language": "English",
+    "line_count": 3
+  },
+  {
+    "text": "Network > NetWorth. I've learned more from conversations than from any course. Who did you have a great conversation with today? 💬",
+    "tags": ["Networking", "Growth", "Relationships"],
+    "language": "English",
+    "line_count": 3
+  },
+  {
+    "text": "Imposter syndrome is real, but remember: you were hired for a reason. Trust your abilities and keep learning. You've got this! 🚀",
+    "tags": ["Mental Health", "Motivation", "Career"],
+    "language": "English",
+    "line_count": 3
+  },
+  {
+    "text": "Data drives decisions. If you're not tracking metrics, you're flying blind. What KPIs matter most to you? 📊",
+    "tags": ["Analytics", "Business", "Data"],
+    "language": "English",
+    "line_count": 3
+  },
+  {
+    "text": "Machine Learning का future exciting है! लेकिन पहले fundamentals पर focus करो। Algorithm समझ में आए तो implementation आसान हो जाता है। 🤖",
+    "tags": ["Tech", "Machine Learning", "Learning"],
+    "language": "Hinglish",
+    "line_count": 3
+  },
+  {
+    "text": "Interview tips: Be specific, not generic. अपने real projects के बारे में बात करो। Confidence और honesty ही best strategy है। 💼",
+    "tags": ["Job Interview", "Career Advice", "Success"],
+    "language": "Hinglish",
+    "line_count": 3
+  }
+]
