@@ -2,7 +2,7 @@ import json
 from llm_helper import llm
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import JsonOutputParser
-from langchain_core.exceptions import OutputParserExceptio
+from langchain_core.exceptions import OutputParserException
 
 
 def process_posts(raw_file_path, processed_file_path=None):
@@ -30,7 +30,7 @@ def extract_metadata(post):
     1. Return a valid JSON. No preamble. 
     2. JSON object should have exactly three keys: line_count, language and tags. 
     3. tags is an array of text tags. Extract maximum two tags.
-    4. Language should be English or Hinglish (Hinglish means hindi + english)
+    4. Language should be English or Telglish (Telglish means telugu + english)
     
     Here is the actual post on which you need to perform this task:  
     {post}

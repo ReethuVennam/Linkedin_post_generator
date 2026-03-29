@@ -1,28 +1,108 @@
-# project-genai-post-generator
-This tool will analyze posts of a LinkedIn influencer and help them create the new posts based on the writing style in their old posts  
+# LinkedIn Post Generator
 
-<img src="resources/tool.jpg"/>
+A Streamlit-based web application that generates engaging LinkedIn posts using AI. Powered by LangChain and Groq, this tool helps create professional content tailored to specific topics, lengths, and languages.
 
-Let's say Mohan is a LinkedIn influencer and he needs help in writing his future posts. He can feed his past LinkedIn posts to this tool and it will extract key topics. Then he can select the topic, length, language etc. and use Generate button to create a new post that will match his writing style. 
+## Features
 
-## Technical Architecture
-<img src="resources/architecture.jpg"/>
+- **AI-Powered Generation**: Uses advanced language models to create high-quality LinkedIn posts.
+- **Customizable Options**: Choose from various topics, post lengths (Short, Medium, Long), and languages (English, Hinglish).
+- **Few-Shot Learning**: Incorporates example posts to maintain consistent writing style.
+- **User-Friendly Interface**: Simple web interface built with Streamlit.
+- **Fast and Efficient**: Quick generation with real-time feedback.
 
-1. Stage 1: Collect LinkedIn posts and extract Topic, Language, Length etc. from it.
-1. Stage 2: Now use topic, language and length to generate a new post. Some of the past posts related to that specific topic, language and length will be used for few shot learning to guide the LLM about the writing style etc.
+## Installation
 
-## Set-up
-1. To get started we first need to get an API_KEY from here: https://console.groq.com/keys. Inside `.env` update the value of `GROQ_API_KEY` with the API_KEY you created. 
-2. To get started, first install the dependencies using:
-    ```commandline
-     pip install -r requirements.txt
-    ```
-3. Run the streamlit app:
-   ```commandline
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/linkedin-post-generator.git
+   cd linkedin-post-generator
+   ```
+
+2. **Create a virtual environment**:
+   ```bash
+   python -m venv .venv
+   ```
+
+3. **Activate the virtual environment**:
+   - On Windows:
+     ```bash
+     .venv\Scripts\activate
+     ```
+   - On macOS/Linux:
+     ```bash
+     source .venv/bin/activate
+     ```
+
+4. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+5. **Set up environment variables**:
+   - Create a `.env` file in the root directory.
+   - Add your Groq API key:
+     ```
+     GROQ_API_KEY=your_api_key_here
+     ```
+
+## Usage
+
+1. **Run the application**:
+   ```bash
    streamlit run main.py
    ```
-Copyright (C) Codebasics Inc. All rights reserved.
+
+2. **Open your browser** and navigate to the provided URL (usually `http://localhost:8501`).
+
+3. **Generate posts**:
+   - Select a topic from the dropdown.
+   - Choose the desired length and language.
+   - Click "Generate Post" to create your content.
+
+## Requirements
+
+- Python 3.8+
+- Groq API key (sign up at [Groq](https://groq.com/))
+- Internet connection for API calls
+
+## Dependencies
+
+- streamlit>=1.35.0
+- langchain>=0.3.0
+- langchain-core>=0.3.0
+- langchain-community>=0.3.0
+- langchain_groq>=0.1.9
+- pandas>=2.2.0
+- python-dotenv
+
+## Project Structure
+
+```
+linkedin-post-generator/
+├── main.py                 # Main Streamlit application
+├── post_generator.py       # Post generation logic
+├── few_shot.py            # Few-shot learning implementation
+├── preprocess.py          # Data preprocessing script
+├── llm_helper.py          # LLM configuration
+├── requirements.txt       # Python dependencies
+├── README.md              # This file
+├── .env                   # Environment variables (not in repo)
+└── data/
+    ├── raw_posts.json     # Raw post data
+    └── processed_posts.json # Processed post data
+```
+
+## Contributing
+
+1. Fork the repository.
+2. Create a feature branch: `git checkout -b feature-name`.
+3. Make your changes and commit: `git commit -am 'Add feature'`.
+4. Push to the branch: `git push origin feature-name`.
+5. Submit a pull request.
 
 
-**Additional Terms:**
-This software is licensed under the MIT License. However, commercial use of this software is strictly prohibited without prior written permission from the author. Attribution must be given in all copies or substantial portions of the software.
+
+## Acknowledgments
+
+- Built with [Streamlit](https://streamlit.io/)
+- Powered by [LangChain](https://langchain.com/) and [Groq](https://groq.com/)
