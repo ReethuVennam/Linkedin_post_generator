@@ -49,42 +49,42 @@ Save time creating LinkedIn content by using AI trained on your own writing styl
 ┌─────────────────────────────────────────────────────────────┐
 │              DATA MANAGEMENT LAYER                          │
 │  ┌──────────────────────────────────────────────────────┐  │
-│  │ data_manager.py (DataManager Class)                 │  │
+│  │ data_manager.py (DataManager Class)                  │  │
 │  │                                                      │  │
 │  │ Functions:                                           │  │
-│  │ • load_csv() → Parse CSV files                      │  │
-│  │ • load_json() → Parse JSON files                    │  │
-│  │ • load_from_upload() → Handle file uploads          │  │
-│  │ • load_default_data() → Default posts               │  │
-│  │ • load_custom_data() → User-added posts             │  │
-│  │ • add_manual_post() → Save new posts                │  │
-│  │ • merge_dataframes() → Combine all data             │  │
+│  │ • load_csv() → Parse CSV files                       │  │
+│  │ • load_json() → Parse JSON files                     │  │
+│  │ • load_from_upload() → Handle file uploads           │  │
+│  │ • load_default_data() → Default posts                │  │
+│  │ • load_custom_data() → User-added posts              │  │
+│  │ • add_manual_post() → Save new posts                 │  │
+│  │ • merge_dataframes() → Combine all data              │  │
 │  └──────────────────────────────────────────────────────┘  │
-└─────────────────────────────────────────────────────────────┘
+└────────────────────────────────────────────────────────────┘
               ↓
 ┌─────────────────────────────────────────────────────────────┐
 │           FEW-SHOT EXAMPLE SELECTOR (few_shot.py)           │
-│  ┌──────────────────────────────────────────────────────┐  │
-│  │ FewShotPosts Class                                   │  │
-│  │                                                      │  │
-│  │ 1. Loads data from all sources                      │  │
-│  │ 2. Extracts unique tags from posts                  │  │
-│  │ 3. Categorizes posts by length                      │  │
-│  │ 4. Filters posts by: Topic + Length + Language     │  │
-│  │ 5. Returns 2 best matching examples                │  │
-│  └──────────────────────────────────────────────────────┘  │
+│  ┌──────────────────────────────────────────────────────┐   │
+│  │ FewShotPosts Class                                   │   │
+│  │                                                      │   │
+│  │ 1. Loads data from all sources                       │   │
+│  │ 2. Extracts unique tags from posts                   │   │
+│  │ 3. Categorizes posts by length                       │   │
+│  │ 4. Filters posts by: Topic + Length + Language       │   │
+│  │ 5. Returns 2 best matching examples                  │   │
+│  └──────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────┘
               ↓
 ┌─────────────────────────────────────────────────────────────┐
 │         POST GENERATION LAYER (post_generator.py)           │
-│  ┌──────────────────────────────────────────────────────┐  │
-│  │ 1. Format user input (topic, length, language)     │  │
-│  │ 2. Get 2 example posts matching criteria            │  │
-│  │ 3. Build prompt with examples                       │  │
-│  │ 4. Send to LLM via LangChain                        │  │
-│  │ 5. Return generated post                            │  │
-│  └──────────────────────────────────────────────────────┘  │
-└─────────────────────────────────────────────────────────────┘
+│  ┌──────────────────────────────────────────────────────┐   │
+│  │ 1. Format user input (topic, length, language)       │   │
+│  │ 2. Get 2 example posts matching criteria             │   │
+│  │ 3. Build prompt with examples                        │   │
+│  │ 4. Send to LLM via LangChain                         │   │
+│  │ 5. Return generated post                             │   │
+│  └──────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────── ─┘
               ↓
 ┌─────────────────────────────────────────────────────────────┐
 │            LLM LAYER (llm_helper.py)                        │
